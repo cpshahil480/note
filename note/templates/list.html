@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+{%block body_block%}
+
+{%for p in post%}
+<div class="card mb-3 mt-5 ms-5 text-bg-light " style="max-width: 540px;">
+    <div class="row g-0 ">
+        <div class="col-md-4 ms-5">
+            <!--      <img src="" class="img-fluid rounded-start" alt="...">-->
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title text-center"><strong>{{p.title}}</strong></h5>
+                <hr>
+                <ul>
+                    <li><strong>SUB :</strong>{{p.title_tag}}</li>
+                    <li><strong>POSTED DATE :</strong>{{p.post_date}}</li>
+                    <hr>
+                    <strong class="ms-5">{{p.body | safe}}</strong>
+                    <a href="{%url 'note-edit' p.id%}">edit</a>
+                    <a href="{%url 'note-remove' p.id%}">delete</a>
+
+                </ul>
+
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endfor%}
+{%endblock%}
